@@ -37,4 +37,12 @@ RSpec.describe ZipCode, :type => :model do
     expect(@zip_code).to_not be_valid
   end
 
+  it 'zip_code validation should reject invalid zip_codes' do
+    invalid_zips = %w[abcde a1d3b]
+    invalid_zips.each do |invalid_zip|
+      @zip_code.zip_code = invalid_zip
+      expect(@zip_code).to_not be_valid
+    end
+  end
+
 end
