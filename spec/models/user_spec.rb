@@ -29,7 +29,7 @@ RSpec.describe User, :type => :model do
   end
 
   it 'name is not too long' do
-    @user.name = a * 51
+    @user.name = 'a' * 51
 
     expect(@user).to_not be_valid
   end
