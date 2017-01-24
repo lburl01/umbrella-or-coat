@@ -10,19 +10,19 @@ RSpec.describe User, :type => :model do
     expect(@user).to be_valid
   end
 
-  it 'is invalid without name' do
+  it 'name should be present' do
     @user.name = ''
 
     expect(@user).to_not be_valid
   end
 
-  it 'is invalid without email' do
+  it 'email should be present' do
     @user.email = ''
 
     expect(@user).to_not be_valid
   end
 
-  it 'is invalid without password' do
+  it 'password should be present' do
     @user.password_digest = ''
 
     expect(@user).to_not be_valid
@@ -51,6 +51,14 @@ RSpec.describe User, :type => :model do
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
       expect(@user).to_not be_valid
+    end
+  end
+
+  it 'email validation should accept valid addresses' do
+    valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
+    valid_addresses.each do |valid_address|
+      @user.email = valid_address
+      expect(@user).to be_valid
     end
   end
 
