@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password_digest, presence: true, length: { minimum: 6 }
 
+  has_many :zip_codes
+  has_one :temp_preference
+
   private
 
     def downcase_email

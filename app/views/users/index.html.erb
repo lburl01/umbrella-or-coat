@@ -1,0 +1,7 @@
+<% if @users.empty? %>
+<h1>Welcome to Umbrella or Coat</h1>
+<% else %>
+  <% @users.each do |user| %>
+  <%= link_to user.name, user %>
+  <% end %>
+<% end %>

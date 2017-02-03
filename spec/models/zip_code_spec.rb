@@ -25,12 +25,6 @@ RSpec.describe ZipCode, :type => :model do
     expect(@zip_code).to_not be_valid
   end
 
-  it 'default value should be present' do
-    @zip_code.default_zip = ''
-
-    expect(@zip_code).to_not be_valid
-  end
-
   it 'user_id should be present' do
     @zip_code.user_id = ''
 
